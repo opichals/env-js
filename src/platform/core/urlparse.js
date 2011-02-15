@@ -103,7 +103,7 @@ urlparse.normalizepath = function(path)
 
     var newparts = [];
     // make sure path always starts with '/'
-    if (parts[0]) {
+    if (!parts[0]) {
         newparts.push('');
     }
 
@@ -114,7 +114,7 @@ urlparse.normalizepath = function(path)
             } else {
                 newparts.push(parts[i]);
             }
-        } else if (parts[i] != '.') {
+        } else if (parts[i] != '' && parts[i] != '.') {
             newparts.push(parts[i]);
         }
     }
