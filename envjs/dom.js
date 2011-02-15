@@ -1475,7 +1475,9 @@ __extend__(NamedNodeMap.prototype, {
         }
         
         //remove from named node indexes on the document
-        __removeFromNamedIndexes__(name, oldNode.value, oldNode.ownerElement);
+        if (oldNode) {
+            __removeFromNamedIndexes__(name, oldNode.value, oldNode.ownerElement);
+        }
         
         // return removed node
         return __removeChild__(this, itemIndex);
